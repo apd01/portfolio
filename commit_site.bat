@@ -3,7 +3,7 @@ REM Switch to the new branch, creating it if it doesn't exist
 git checkout -b github-pages
 
 REM Remove all files tracked by git 
-git rm -rf .
+git ls-files | findstr /v /i "commit_site.bat" | xargs git rm
 
 REM Move the dist/ content to the root
 xcopy /E /I /H dist .
